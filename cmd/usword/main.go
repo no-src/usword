@@ -13,7 +13,6 @@ import (
 	"github.com/no-src/usword/res/lang"
 	"os"
 	"strings"
-	"time"
 )
 
 var LogPath = "usword_log" // 日志目录
@@ -21,6 +20,8 @@ var LogPath = "usword_log" // 日志目录
 func main() {
 	args := os.Args[1:]
 	initLogger(args...)
+	defer log.Close()
+
 	ed := executor.ExecDistribute{}
 	exec := ed.GetExecutor(args...)
 	result, err := exec.Handle(args...)
@@ -29,8 +30,6 @@ func main() {
 	} else {
 		log.Log("%s", string(result))
 	}
-	// 等待日志写入完毕
-	time.Sleep(time.Millisecond * 10)
 }
 
 // initLogger 初始化日志组件
