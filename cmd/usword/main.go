@@ -13,6 +13,7 @@ import (
 	"github.com/no-src/usword/res/lang"
 	"os"
 	"strings"
+	"time"
 )
 
 var LogPath = "usword_log" // 日志目录
@@ -42,5 +43,5 @@ func initLogger(args ...string) {
 			}
 		}
 	}
-	log.InitDefaultLogger(log.NewMultiLogger(log.NewConsoleLogger(log.DebugLevel), log.NewFileLogger(log.DebugLevel, LogPath, "usword")))
+	log.InitDefaultLogger(log.NewMultiLogger(log.NewConsoleLogger(log.DebugLevel), log.NewFileLoggerWithAutoFlush(log.DebugLevel, LogPath, "usword", true, time.Second*3)))
 }
