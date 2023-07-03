@@ -4,10 +4,11 @@ import (
 	"bufio"
 	"bytes"
 	"fmt"
+	"net"
+
 	"github.com/no-src/log"
 	"github.com/no-src/usword/connector"
 	"github.com/no-src/usword/res/lang"
-	"net"
 )
 
 // Client 网络连接客户端

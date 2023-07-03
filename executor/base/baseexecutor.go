@@ -1,8 +1,9 @@
 package base
 
 import (
-	"github.com/no-src/usword/executor/const"
 	"strings"
+
+	"github.com/no-src/usword/executor/const"
 )
 
 // BaseExecutor 命令执行器

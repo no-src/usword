@@ -3,6 +3,12 @@ package multiclient
 import (
 	"bufio"
 	"fmt"
+	"io"
+	"net/url"
+	"os"
+	"strconv"
+	"strings"
+
 	"github.com/no-src/log"
 	"github.com/no-src/usword/console"
 	"github.com/no-src/usword/executor"
@@ -11,11 +17,6 @@ import (
 	"github.com/no-src/usword/executor/const"
 	"github.com/no-src/usword/executor/help"
 	"github.com/no-src/usword/res/lang"
-	"io"
-	"net/url"
-	"os"
-	"strconv"
-	"strings"
 )
 
 type MultiClientExecutor struct {

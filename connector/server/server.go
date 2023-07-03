@@ -2,10 +2,11 @@ package connector
 
 import (
 	"bufio"
-	"github.com/no-src/log"
-	"github.com/no-src/usword/res/lang"
 	"net"
 	"sync/atomic"
+
+	"github.com/no-src/log"
+	"github.com/no-src/usword/res/lang"
 )
 
 // Server 网络连接服务端

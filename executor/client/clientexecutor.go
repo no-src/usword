@@ -4,6 +4,12 @@ import (
 	"bufio"
 	"errors"
 	"fmt"
+	"io"
+	"net"
+	"os"
+	"strconv"
+	"strings"
+
 	"github.com/no-src/log"
 	default_conn "github.com/no-src/usword/connector"
 	"github.com/no-src/usword/connector/client"
@@ -13,11 +19,6 @@ import (
 	"github.com/no-src/usword/executor/const"
 	"github.com/no-src/usword/executor/help"
 	"github.com/no-src/usword/res/lang"
-	"io"
-	"net"
-	"os"
-	"strconv"
-	"strings"
 )
 
 // ClientExecutor 网络连接客户端执行器
