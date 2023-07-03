@@ -3,16 +3,16 @@ package _http
 import (
 	"bytes"
 	"encoding/json"
-	"github.com/no-src/usword/http/const"
-	"github.com/no-src/log"
-	"github.com/no-src/usword/res/lang"
 	"io"
-	"io/ioutil"
 	"net/http"
 	"strings"
+
+	"github.com/no-src/log"
+	"github.com/no-src/usword/http/const"
+	"github.com/no-src/usword/res/lang"
 )
 
-// Http客户端实现
+// HttpClient Http客户端实现
 type HttpClient struct {
 	client *http.Client
 }
@@ -163,7 +163,7 @@ func (httpClient *HttpClient) HttpSend(method, protocol, url, contentType string
 
 	defer resp.Body.Close()
 
-	responseData, err = ioutil.ReadAll(resp.Body)
+	responseData, err = io.ReadAll(resp.Body)
 	if err != nil {
 		log.Error(err, "[%s]%s[%s]", method, lang.HTTP_Error_ReadBodyFailed, url)
 		return responseData, err

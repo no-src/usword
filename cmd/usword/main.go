@@ -1,7 +1,12 @@
 package main
 
 import (
+	"os"
+	"strings"
+	"time"
+
 	"github.com/no-src/log"
+	"github.com/no-src/log/level"
 	"github.com/no-src/usword/executor"
 	_ "github.com/no-src/usword/executor/client"
 	_ "github.com/no-src/usword/executor/help"
@@ -11,9 +16,6 @@ import (
 	_ "github.com/no-src/usword/executor/server"
 	_ "github.com/no-src/usword/executor/version"
 	"github.com/no-src/usword/res/lang"
-	"os"
-	"strings"
-	"time"
 )
 
 var LogPath = "usword_log" // 日志目录
@@ -43,5 +45,9 @@ func initLogger(args ...string) {
 			}
 		}
 	}
-	log.InitDefaultLogger(log.NewMultiLogger(log.NewConsoleLogger(log.DebugLevel), log.NewFileLoggerWithAutoFlush(log.DebugLevel, LogPath, "usword", true, time.Second*3)))
+	logger, err := log.NewFileLoggerWithAutoFlush(level.DebugLevel, LogPath, "usword", true, time.Second*3)
+	if err != nil {
+		panic(err)
+	}
+	log.InitDefaultLogger(log.NewMultiLogger(log.NewConsoleLogger(level.DebugLevel), logger))
 }

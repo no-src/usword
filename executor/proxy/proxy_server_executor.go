@@ -4,6 +4,10 @@ import (
 	"bufio"
 	"errors"
 	"fmt"
+	"net"
+	"strconv"
+	"strings"
+
 	"github.com/no-src/log"
 	default_conn "github.com/no-src/usword/connector"
 	"github.com/no-src/usword/executor"
@@ -13,9 +17,6 @@ import (
 	"github.com/no-src/usword/executor/help"
 	"github.com/no-src/usword/executor/server"
 	"github.com/no-src/usword/res/lang"
-	"net"
-	"strconv"
-	"strings"
 )
 
 type ProxyServerExecutor struct {
